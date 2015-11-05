@@ -38,7 +38,7 @@ encountered while performing an operation.
 
 Adding errors or warnings will store them under the Mojolicious stash key
 `plugin.errors` by default. Don't access this stash value directly. Use the
-`$c-&gt;errors` and `$c-&gt;warnings` accessors instead.
+`$c->errors` and `$c->warnings` accessors instead.
 
 ```perl
   # add errors and warnings using the imported helpers
