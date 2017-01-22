@@ -93,7 +93,7 @@ C<code>. This an application-specific error or warning code, expressed as a
 string value.
 
   $c->add_error('sql', status => 400, title => 'Your SQL is malformed.');
-  $c->add_warning('search', title => 'Invalid search column.', path => 'pw');
+  $c->add_warning('search', title => 'Invalid search column.', path => 'password');
 
   # {
   #    "errors": [
@@ -126,10 +126,10 @@ L<Mojolicious::Plugin::ErrorsAndWarnings> implements the following attributes.
 The name of the config key to inspect for user-defined error and warning codes.
 Defaults to C<codes>.
 
-The plugin will merge default values from an app's config if a matching key is
-found. See the example below.
+The plugin will merge default values from an app's config if a matching C<code>
+is found. See the example below.
 
-  # Mojolicious::Lite example merging config values
+  # Mojolicious::Lite example which merges config values
   use Mojolicious::Lite;
 
   plugin 'ErrorsAndWarnings';
@@ -200,16 +200,16 @@ Pushes to the warnings stash.
 
 =head2 errors
 
-Returns an C<ARRAYREF> of errors.
+Returns an C<ARRAYREF> of errors. Returns C<undef> if there are no errors.
 
 =head2 warnings
 
-Returns an C<ARRAYREF> of warnings.
+Returns an C<ARRAYREF> of warnings. Returns C<undef> if there are no warnings.
 
 =head1 METHODS
 
-L<Mojolicious::Plugin::Config> inherits all methods from L<Mojolicious::Plugin>
-and implements the following new ones.
+L<Mojolicious::Plugin::ErrorsAndWarnings> inherits all methods from
+L<Mojolicious::Plugin> and implements the following new ones.
 
 =head2 register
 
@@ -219,7 +219,7 @@ Register plugin in L<Mojolicious> application.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2015, Paul Williams.
+Copyright (C) 2015-2017, Paul Williams.
 
 This program is free software, you can redistribute it and/or modify it under
 the terms of the Artistic License version 2.0.
