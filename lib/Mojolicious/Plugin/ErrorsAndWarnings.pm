@@ -1,7 +1,7 @@
 package Mojolicious::Plugin::ErrorsAndWarnings;
 use Mojo::Base 'Mojolicious::Plugin';
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 has config_key => 'codes';
 has stash_key  => 'plugin.errors';
