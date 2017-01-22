@@ -21,16 +21,16 @@ sub register {
 }
 
 sub _add_to_stash {
-  my ($plugin, $type, $app, $name, %attrs) = @_;
+  my ($plugin, $type, $app, $code, %attrs) = @_;
 
   my $data = {};
   if (my $conf = $app->config($plugin->config_key)) {
-    $data = $conf->{$name} // $conf->{default} // {};
+    $data = $conf->{$code} // $conf->{default} // {};
   }
 
   # Add the code name and attrs. Added in this order because %attrs can
   # override the code.
-  $data = {%{$data}, code => $name, %attrs};
+  $data = {%{$data}, code => $code, %attrs};
   push @{$app->stash->{$plugin->stash_key}->{$type}}, $data;
 
   return $data;
