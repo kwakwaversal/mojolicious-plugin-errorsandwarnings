@@ -1,3 +1,5 @@
+#!/usr/bin/env perl
+
 package MyApp;
 use Mojo::Base 'Mojolicious';
 
